@@ -1,4 +1,5 @@
 import type { Digest } from '../types/news';
+import SplitText from './SplitText';
 
 interface DigestBlockProps {
   digest: Digest | null;
@@ -42,43 +43,79 @@ export function DigestBlock({ digest, loading }: DigestBlockProps) {
     <section id="digest" className="bg-secondary-container rounded-xl p-12 mb-24 relative overflow-hidden">
       <div className="max-w-4xl">
         <div className="flex items-baseline gap-4 mb-8">
-          <span className="font-body text-sm uppercase tracking-widest text-on-secondary-container opacity-80">
-            {digest.date}
-          </span>
+          <SplitText
+            text={digest.date}
+            tag="span"
+            className="font-body text-sm uppercase tracking-widest text-on-secondary-container opacity-80"
+            delay={30}
+            duration={500}
+            startDelay={0}
+          />
           <div className="h-px flex-grow bg-on-secondary-container/20" />
         </div>
 
-        <h1 className="font-headline text-5xl md:text-7xl font-bold text-primary mb-12 tracking-tight leading-tight">
-          {headline}
-        </h1>
+        <SplitText
+          text={headline}
+          tag="h1"
+          className="font-headline text-5xl md:text-7xl font-bold text-primary mb-12 tracking-tight leading-tight"
+          delay={40}
+          duration={700}
+          startDelay={0}
+        />
 
         <div className="grid md:grid-cols-2 gap-16">
           <div className="space-y-6">
             {restOfSummary && (
-              <p className="font-body text-lg leading-relaxed text-on-secondary-container">
-                {restOfSummary}
-              </p>
+              <SplitText
+                text={restOfSummary}
+                tag="p"
+                className="font-body text-lg leading-relaxed text-on-secondary-container"
+                delay={20}
+                duration={500}
+                startDelay={0}
+              />
             )}
             <div className="pt-4">
-              <span className="font-headline italic text-xl text-primary">
-                Curated by the Editorial Collective
-              </span>
+              <SplitText
+                text="Curated by the Editorial Collective"
+                tag="span"
+                className="font-headline italic text-xl text-primary"
+                delay={30}
+                duration={500}
+                startDelay={0}
+              />
             </div>
           </div>
 
           <div className="space-y-6">
-            <h3 className="font-body font-bold text-xs uppercase tracking-[0.2em] text-on-secondary-container opacity-60">
-              Top Headlines
-            </h3>
+            <SplitText
+              text="Top Headlines"
+              tag="h3"
+              className="font-body font-bold text-xs uppercase tracking-[0.2em] text-on-secondary-container opacity-60"
+              delay={30}
+              duration={500}
+              startDelay={0}
+            />
             <ol className="space-y-4">
               {digest.top_items.map((item, i) => (
                 <li key={i} className="flex gap-4 items-start">
-                  <span className="font-headline font-bold text-primary opacity-40 text-xl">
-                    {String(i + 1).padStart(2, '0')}
-                  </span>
-                  <span className="font-body font-medium text-on-secondary-container leading-tight">
-                    {item}
-                  </span>
+                  <SplitText
+                    text={String(i + 1).padStart(2, '0')}
+                    tag="span"
+                    className="font-headline font-bold text-primary opacity-40 text-xl"
+                    splitType="chars"
+                    delay={50}
+                    duration={500}
+                    startDelay={0}
+                  />
+                  <SplitText
+                    text={item}
+                    tag="span"
+                    className="font-body font-medium text-on-secondary-container leading-tight"
+                    delay={20}
+                    duration={500}
+                    startDelay={0}
+                  />
                 </li>
               ))}
             </ol>

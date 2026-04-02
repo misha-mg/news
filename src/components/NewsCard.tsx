@@ -38,7 +38,7 @@ interface ArticleProps {
 
 export function FeaturedArticle({ article }: ArticleProps) {
   return (
-    <article className="md:col-span-8 group">
+    <article className="group">
       <div className="flex flex-col gap-6">
         <div className="flex items-center gap-4">
           <CategoryBadge category={article.category} />
@@ -73,7 +73,7 @@ export function FeaturedArticle({ article }: ArticleProps) {
 
 export function SidebarArticle({ article }: ArticleProps) {
   return (
-    <article className="md:col-span-4 self-start mt-0 md:mt-12 group">
+    <article className="group">
       <div className="flex flex-col gap-4 p-8 bg-surface-container rounded-xl">
         <CategoryBadge category={article.category} />
         <a
@@ -97,15 +97,9 @@ export function SidebarArticle({ article }: ArticleProps) {
   );
 }
 
-export function MediumArticle({ article, staggered = false }: ArticleProps & { staggered?: boolean }) {
+export function MediumArticle({ article }: ArticleProps & { staggered?: boolean }) {
   return (
-    <article
-      className={
-        staggered
-          ? 'md:col-span-5 group md:mt-24'
-          : 'md:col-start-2 md:col-span-5 group'
-      }
-    >
+    <article className="group">
       <div className="flex flex-col gap-6">
         <div className="flex items-center gap-4">
           <CategoryBadge category={article.category} />
@@ -131,7 +125,7 @@ export function MediumArticle({ article, staggered = false }: ArticleProps & { s
 
 export function FullWidthFeature({ article }: ArticleProps) {
   return (
-    <article className="md:col-span-10 md:col-start-1 bg-surface-container-low p-10 md:p-16 rounded-xl group">
+    <article className="bg-surface-container-low p-10 md:p-16 rounded-xl group">
       <div className="grid md:grid-cols-2 gap-12">
         <div className="space-y-6">
           <CategoryBadge category={article.category} />
@@ -147,7 +141,7 @@ export function FullWidthFeature({ article }: ArticleProps) {
         <div className="space-y-6">
           {article.summary && (
             <p className="font-body text-lg text-on-surface-variant leading-relaxed italic">
-              "{article.summary}"
+              &ldquo;{article.summary}&rdquo;
             </p>
           )}
           <div className="font-body text-xs opacity-60">
@@ -161,7 +155,7 @@ export function FullWidthFeature({ article }: ArticleProps) {
 
 export function SimpleCard({ article }: ArticleProps) {
   return (
-    <article className="md:col-span-4 group">
+    <article className="group">
       <div className="flex flex-col gap-4">
         <CategoryBadge category={article.category} textOnly />
         <a

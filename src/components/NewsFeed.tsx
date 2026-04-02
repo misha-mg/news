@@ -1,4 +1,5 @@
 import type { Article } from '../types/news';
+import FadeContent from './FadeContent';
 import {
   FeaturedArticle,
   SidebarArticle,
@@ -13,29 +14,33 @@ interface NewsFeedProps {
   error: string | null;
 }
 
-function renderArticle(article: Article, index: number) {
+function getGridClass(index: number): string {
   const position = index % 8;
-
   switch (position) {
-    case 0:
-      return <FeaturedArticle key={article.id} article={article} />;
-    case 1:
-      return <SidebarArticle key={article.id} article={article} />;
-    case 2:
-      return <MediumArticle key={article.id} article={article} />;
-    case 3:
-      return <MediumArticle key={article.id} article={article} staggered />;
-    case 4:
-      return <FullWidthFeature key={article.id} article={article} />;
-    default:
-      return <SimpleCard key={article.id} article={article} />;
+    case 0: return 'md:col-span-8';
+    case 1: return 'md:col-span-4 self-start md:mt-12';
+    case 2: return 'md:col-start-2 md:col-span-5';
+    case 3: return 'md:col-span-5 md:mt-24';
+    case 4: return 'md:col-span-10 md:col-start-1';
+    default: return 'md:col-span-4';
+  }
+}
+
+function renderCard(article: Article, index: number) {
+  const position = index % 8;
+  switch (position) {
+    case 0: return <FeaturedArticle article={article} />;
+    case 1: return <SidebarArticle article={article} />;
+    case 2: return <MediumArticle article={article} />;
+    case 3: return <MediumArticle article={article} staggered />;
+    case 4: return <FullWidthFeature article={article} />;
+    default: return <SimpleCard article={article} />;
   }
 }
 
 function LoadingSkeleton() {
   return (
     <section className="grid grid-cols-1 md:grid-cols-12 gap-x-12 gap-y-24 mb-48 animate-pulse">
-      {/* Featured placeholder */}
       <div className="md:col-span-8 space-y-6">
         <div className="h-3 bg-surface-container-high rounded w-32" />
         <div className="h-10 bg-surface-container-high rounded w-full" />
@@ -43,14 +48,12 @@ function LoadingSkeleton() {
         <div className="h-4 bg-surface-container-high rounded w-2/3" />
         <div className="h-4 bg-surface-container-high rounded w-1/2" />
       </div>
-      {/* Sidebar placeholder */}
       <div className="md:col-span-4 self-start md:mt-12 p-8 bg-surface-container rounded-xl space-y-4">
         <div className="h-3 bg-surface-container-high rounded w-24" />
         <div className="h-6 bg-surface-container-high rounded w-full" />
         <div className="h-6 bg-surface-container-high rounded w-3/4" />
         <div className="h-4 bg-surface-container-high rounded w-full" />
       </div>
-      {/* Medium placeholders */}
       <div className="md:col-start-2 md:col-span-5 space-y-4">
         <div className="h-3 bg-surface-container-high rounded w-24" />
         <div className="h-8 bg-surface-container-high rounded w-full" />
@@ -88,7 +91,17 @@ export function NewsFeed({ articles, loading, error }: NewsFeedProps) {
 
   return (
     <section id="feed" className="grid grid-cols-1 md:grid-cols-12 gap-x-12 gap-y-24 mb-48">
-      {articles.map((article, i) => renderArticle(article, i))}
+      {articles.map((article, i) => (
+        <FadeContent
+          key={article.id}
+          blur
+          duration={600}
+          delay={(i % 8) * 80}
+          className={getGridClass(i)}
+        >
+          {renderCard(article, i)}
+        </FadeContent>
+      ))}
     </section>
   );
 }
