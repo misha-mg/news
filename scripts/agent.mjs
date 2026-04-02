@@ -49,8 +49,7 @@ const MAX_ARTICLES_PER_DAY = 50;
 const LOOKBACK_MS         = 24 * 60 * 60 * 1000; // 24 h
 
 if (!SUPABASE_URL || !SERVICE_ROLE_KEY || !OPENROUTER_API_KEY) {
-  console.error('Missing required env vars. Check .env.local');
-  process.exit(1);
+  throw new Error('Missing required env vars (SUPABASE_URL, SUPABASE_SERVICE_ROLE_KEY, OPENROUTER_API_KEY)');
 }
 
 /** @type {Array<{name: string, url: string, defaultCategory: string}>} */
@@ -307,7 +306,14 @@ Respond with JSON only — no markdown:
 `);
 }
 
-run().catch((err) => {
-  console.error('Fatal error:', err);
-  process.exit(1);
-});
+// Allow importing run() from other modules (e.g. Vercel cron)
+export { run };
+
+// Run directly when executed as a script
+const isDirectRun = process.argv[1] && fileURLToPath(import.meta.url) === resolve(process.argv[1]);
+if (isDirectRun) {
+  run().catch((err) => {
+    console.error('Fatal error:', err);
+    process.exit(1);
+  });
+}
