@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Dev News | Daily IT &amp; AI Briefing</title>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,700;0,6..72,800;1,6..72,400&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "secondary-fixed-dim": "#b5ccba",
+              "on-error-container": "#93000a",
+              "secondary-fixed": "#d1e8d5",
+              "on-tertiary-fixed": "#00210e",
+              "surface-dim": "#dfd9d1",
+              "primary-container": "#800020",
+              "on-primary-container": "#ff828a",
+              "on-secondary": "#ffffff",
+              "secondary": "#4e6354",]
+              "inverse-on-surface": "#f7f0e8",
+              "on-background": "#1e1b17",
+              "outline-variant": "#e0bfbf",
+              "on-tertiary": "#ffffff",
+              "on-surface-variant": "#584141",
+              "surface-bright": "#fff8f1",
+              "surface-variant": "#e8e1da",
+              "primary": "#570013",
+              "surface-container-lowest": "#ffffff",
+              "on-surface": "#1e1b17",
+              "secondary-container": "#cee6d3",
+              "on-primary-fixed-variant": "#8e0f28",
+              "surface-container": "#f4ede5",
+              "on-tertiary-fixed-variant": "#294e35",
+              "on-secondary-container": "#526858",
+              "tertiary-container": "#20452c",
+              "surface": "#fff8f1",
+              "outline": "#8c7071",
+              "error": "#ba1a1a",
+              "inverse-primary": "#ffb3b5",
+              "primary-fixed": "#ffdada",
+              "surface-tint": "#af2b3e",
+              "tertiary": "#072e17",
+              "on-secondary-fixed-variant": "#374b3d",
+              "background": "#fff8f1",
+              "surface-container-highest": "#e8e1da",
+              "primary-fixed-dim": "#ffb3b5",
+              "surface-container-high": "#eee7df",
+              "surface-container-low": "#f9f3eb",
+              "inverse-surface": "#33302b",
+              "tertiary-fixed": "#c2edca",
+              "on-error": "#ffffff",
+              "error-container": "#ffdad6",
+              "on-primary": "#ffffff",
+              "tertiary-fixed-dim": "#a7d1af",
+              "on-tertiary-container": "#89b292",
+              "on-secondary-fixed": "#0c1f14",
+              "on-primary-fixed": "#40000b"
+            },
+            fontFamily: {
+              "headline": ["Newsreader"],
+              "body": ["Inter"],
+              "label": ["Inter"]
+            },
+            borderRadius: {"DEFAULT": "1rem", "lg": "2rem", "xl": "3rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+      .material-symbols-outlined {
+        font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      }
+      body {
+        background-color: #FFF8F1;
+        font-family: 'Inter', sans-serif;
+        color: #1E1B17;
+      }
+      .serif-headline {
+        font-family: 'Newsreader', serif;
+      }
+      .tracking-tight-custom {
+        letter-spacing: -0.02em;
+      }
+      .tracking-wide-custom {
+        letter-spacing: 0.05em;
+      }
+      /* Hide standard lines as per Design System */
+      .no-border {
+        border: none !important;
+      }
+    </style>
+</head>
+<body class="bg-surface text-on-surface">
+<!-- TopNavBar -->
+<header class="bg-[#FFF8F1] dark:bg-[#1E1B17] opacity-80 backdrop-blur-md font-['Newsreader'] font-bold tracking-tight docked full-width top-0 sticky z-50">
+<div class="flex justify-between items-center w-full px-8 py-6 max-w-7xl mx-auto">
+<div class="flex flex-col">
+<span class="text-2xl font-['Newsreader'] font-black text-[#570013] dark:text-[#E0BFBF]">Dev News</span>
+<span class="font-body text-xs font-normal opacity-70 tracking-wide">Daily IT &amp; AI briefing — Last updated 3h ago</span>
+</div>
+<nav class="hidden md:flex items-center gap-8">
+<a class="text-[#570013] font-bold border-b-2 border-[#800020] pb-1 hover:text-[#800020] transition-colors duration-300" href="#">Daily Digest</a>
+<a class="text-[#1E1B17] opacity-70 font-medium hover:text-[#800020] transition-colors duration-300" href="#">Latest</a>
+<a class="text-[#1E1B17] opacity-70 font-medium hover:text-[#800020] transition-colors duration-300" href="#">Archive</a>
+</nav>
+<button class="bg-primary hover:bg-primary-container text-on-primary px-6 py-2 rounded-full font-body text-sm font-semibold transition-all duration-300">
+                Subscribe
+            </button>
+</div>
+<!-- style_separation_logic -->
+<div class="bg-[#F9F3EB] dark:bg-[#2A2621] h-[1px] w-full"></div>
+</header>
+<main class="max-w-7xl mx-auto px-8 pt-12">
+<!-- Daily Digest Hero Block -->
+<section class="bg-secondary-container rounded-xl p-12 mb-24 relative overflow-hidden">
+<div class="max-w-4xl">
+<div class="flex items-baseline gap-4 mb-8">
+<span class="font-body text-sm uppercase tracking-widest text-on-secondary-container opacity-80">Vol. 42 // 2024-10-24</span>
+<div class="h-[1px] flex-grow bg-on-secondary-container opacity-20"></div>
+</div>
+<h1 class="serif-headline text-5xl md:text-7xl font-bold text-primary mb-12 tracking-tight-custom leading-tight">
+                    The morning briefing on the future of computation.
+                </h1>
+<div class="grid md:grid-cols-2 gap-16">
+<div class="space-y-6">
+<p class="font-body text-lg leading-relaxed text-on-secondary-container">
+                            Today’s landscape is dominated by the emergence of decentralized inference markets and the radical simplification of kernel architectures. We trace the lineage of current LLM optimization back to the forgotten research of the mid-90s, revealing a cyclical pattern in engineering elegance.
+                        </p>
+<div class="pt-4">
+<span class="serif-headline italic text-xl text-primary">Curated by the Editorial Collective</span>
+</div>
+</div>
+<div class="space-y-6">
+<h3 class="font-body font-bold text-xs uppercase tracking-[0.2em] text-on-secondary-container opacity-60">Top Headlines</h3>
+<ol class="space-y-4">
+<li class="flex gap-4 items-start">
+<span class="font-headline font-bold text-primary opacity-40 text-xl">01</span>
+<span class="font-body font-medium text-on-secondary-container leading-tight">The shift towards local-first software architecture in enterprise.</span>
+</li>
+<li class="flex gap-4 items-start">
+<span class="font-headline font-bold text-primary opacity-40 text-xl">02</span>
+<span class="font-body font-medium text-on-secondary-container leading-tight">New benchmark reveals 40% efficiency gains in Sparse Transformers.</span>
+</li>
+<li class="flex gap-4 items-start">
+<span class="font-headline font-bold text-primary opacity-40 text-xl">03</span>
+<span class="font-body font-medium text-on-secondary-container leading-tight">Regulatory clarity arrives for open-source AI developers.</span>
+</li>
+<li class="flex gap-4 items-start">
+<span class="font-headline font-bold text-primary opacity-40 text-xl">04</span>
+<span class="font-body font-medium text-on-secondary-container leading-tight">The "Great Refactoring": Why legacy tech is being rebuilt from scratch.</span>
+</li>
+<li class="flex gap-4 items-start">
+<span class="font-headline font-bold text-primary opacity-40 text-xl">05</span>
+<span class="font-body font-medium text-on-secondary-container leading-tight">Quantum-resistant encryption becomes a standard for browser vendors.</span>
+</li>
+</ol>
+</div>
+</div>
+</div>
+</section>
+<!-- SideNavBar / Filter Bar (Horizontal Implementation for Page Flow) -->
+<nav class="flex flex-wrap gap-4 mb-24 items-center">
+<span class="font-['Inter'] text-sm uppercase tracking-widest text-[#570013] mr-4">Categories</span>
+<button class="bg-[#800020] text-white rounded-full px-6 py-2 shadow-sm font-['Inter'] text-sm uppercase tracking-widest transition-all duration-300 hover:bg-[#570013] active:scale-95">All</button>
+<button class="bg-[#CEE6D3] text-[#1E1B17] rounded-full px-6 py-2 opacity-80 font-['Inter'] text-sm uppercase tracking-widest transition-all duration-300 hover:bg-[#570013] hover:text-white active:scale-95">AI Release</button>
+<button class="bg-[#CEE6D3] text-[#1E1B17] rounded-full px-6 py-2 opacity-80 font-['Inter'] text-sm uppercase tracking-widest transition-all duration-300 hover:bg-[#570013] hover:text-white active:scale-95">Engineering</button>
+<button class="bg-[#CEE6D3] text-[#1E1B17] rounded-full px-6 py-2 opacity-80 font-['Inter'] text-sm uppercase tracking-widest transition-all duration-300 hover:bg-[#570013] hover:text-white active:scale-95">Tools</button>
+<button class="bg-[#CEE6D3] text-[#1E1B17] rounded-full px-6 py-2 opacity-80 font-['Inter'] text-sm uppercase tracking-widest transition-all duration-300 hover:bg-[#570013] hover:text-white active:scale-95">Industry</button>
+</nav>
+<!-- Article Feed (Asymmetric Layout) -->
+<section class="grid grid-cols-1 md:grid-cols-12 gap-x-12 gap-y-24 mb-48">
+<!-- Article 1: High Contrast Wide -->
+<article class="md:col-span-8 group">
+<div class="flex flex-col gap-6">
+<div class="flex items-center gap-4">
+<span class="bg-secondary-container text-primary font-body text-[10px] font-bold tracking-[0.15em] uppercase px-3 py-1 rounded-sm">AI RELEASE</span>
+<span class="h-[1px] w-8 bg-outline-variant"></span>
+<span class="font-body text-xs text-on-surface-variant opacity-60">Wired News • 2h ago</span>
+</div>
+<h2 class="serif-headline text-4xl md:text-5xl font-bold text-primary group-hover:text-primary-container transition-colors duration-300 leading-tight cursor-pointer">
+                        The Architectural Pivot: Moving Beyond the Transformer Bottleneck
+                    </h2>
+<p class="font-body text-lg text-on-surface-variant leading-relaxed max-w-2xl line-clamp-3">
+                        As context windows expand, the quadratic cost of attention is becoming unsustainable. A new class of linear-scaling architectures is emerging from stealth, promising to run large models on commodity consumer hardware without sacrificing reasoning capabilities.
+                    </p>
+<a class="font-body font-bold text-xs uppercase tracking-widest text-primary border-b-2 border-outline-variant pb-1 w-fit hover:border-primary transition-all" href="#">Read Manuscript</a>
+</div>
+</article>
+<!-- Article 2: Small Sidebar -->
+<article class="md:col-span-4 self-start mt-12 group">
+<div class="flex flex-col gap-4 p-8 bg-surface-container rounded-xl">
+<span class="bg-secondary-container text-primary font-body text-[10px] font-bold tracking-[0.15em] uppercase px-3 py-1 rounded-sm w-fit">ENGINEERING</span>
+<h2 class="serif-headline text-2xl font-bold text-on-surface group-hover:text-primary transition-colors cursor-pointer">
+                        Rust's Silent Revolution in the Linux Kernel
+                    </h2>
+<p class="font-body text-sm text-on-surface-variant leading-relaxed line-clamp-3">
+                        The integration of memory-safe languages at the lowest levels of the OS is no longer a debate, but a deployment reality.
+                    </p>
+<div class="pt-4 font-body text-xs opacity-60">The Register • 4h ago</div>
+</div>
+</article>
+<!-- Article 3: Medium Asymmetric -->
+<article class="md:col-start-2 md:col-span-5 group">
+<div class="flex flex-col gap-6">
+<div class="flex items-center gap-4">
+<span class="bg-secondary-container text-primary font-body text-[10px] font-bold tracking-[0.15em] uppercase px-3 py-1 rounded-sm">TOOLS</span>
+<span class="font-body text-xs text-on-surface-variant opacity-60">TechCrunch • 5h ago</span>
+</div>
+<h2 class="serif-headline text-3xl font-bold text-on-surface group-hover:text-primary transition-colors cursor-pointer leading-snug">
+                        Neovim as an IDE: The Case for Terminal-Centric Workflows in 2024
+                    </h2>
+<p class="font-body text-base text-on-surface-variant leading-relaxed">
+                        Developers are increasingly fleeing heavy IDEs for modular, lightning-fast text editors. We explore the plugin ecosystem that makes it possible.
+                    </p>
+</div>
+</article>
+<!-- Article 4: Medium Asymmetric Staggered -->
+<article class="md:col-span-5 group md:mt-24">
+<div class="flex flex-col gap-6">
+<div class="flex items-center gap-4">
+<span class="bg-secondary-container text-primary font-body text-[10px] font-bold tracking-[0.15em] uppercase px-3 py-1 rounded-sm">INDUSTRY</span>
+<span class="font-body text-xs text-on-surface-variant opacity-60">Bloomberg • 6h ago</span>
+</div>
+<h2 class="serif-headline text-3xl font-bold text-on-surface group-hover:text-primary transition-colors cursor-pointer leading-snug">
+                        The Silicon Sovereignty War: Europe's Multi-Billion Euro Fab Bet
+                    </h2>
+<p class="font-body text-base text-on-surface-variant leading-relaxed">
+                        As global supply chains tighten, the race to establish domestic semiconductor manufacturing reaches a fever pitch across the continent.
+                    </p>
+</div>
+</article>
+<!-- Article 5: Full Width Text Feature -->
+<article class="md:col-span-10 md:col-start-1 bg-surface-container-low p-16 rounded-xl group">
+<div class="grid md:grid-cols-2 gap-12">
+<div class="space-y-6">
+<span class="bg-secondary-container text-primary font-body text-[10px] font-bold tracking-[0.15em] uppercase px-3 py-1 rounded-sm w-fit">DEEP DIVE</span>
+<h2 class="serif-headline text-4xl font-bold text-primary group-hover:text-primary-container transition-colors cursor-pointer leading-tight">
+                            The Entropy of the Modern Web: A Post-Image Architecture
+                        </h2>
+</div>
+<div class="space-y-6">
+<p class="font-body text-lg text-on-surface-variant leading-relaxed italic">
+                            "Content is no longer being consumed; it is being filtered. The value of a platform now lies in its ability to omit rather than provide."
+                        </p>
+<p class="font-body text-sm text-on-surface-variant opacity-80">
+                            A philosophical look at how text-only interfaces are returning as a luxury statement against the visual noise of the algorithm-driven internet.
+                        </p>
+<div class="font-body text-xs font-bold tracking-widest text-primary uppercase">Long Read • 15 min</div>
+</div>
+</div>
+</article>
+<!-- Article 6 & 7: Simple Grid -->
+<article class="md:col-span-4 group">
+<div class="flex flex-col gap-4">
+<span class="text-primary font-body text-[10px] font-bold tracking-[0.2em] uppercase">ENGINEERING</span>
+<h2 class="serif-headline text-2xl font-bold text-on-surface group-hover:text-primary cursor-pointer">Postgres as a Vector Database: How Much is Enough?</h2>
+<p class="font-body text-sm text-on-surface-variant opacity-80 leading-relaxed">Exploring the limits of pgvector for production-scale RAG applications.</p>
+<span class="font-body text-[10px] opacity-40 uppercase">Hacker News • 8h ago</span>
+</div>
+</article>
+<article class="md:col-span-4 group">
+<div class="flex flex-col gap-4">
+<span class="text-primary font-body text-[10px] font-bold tracking-[0.2em] uppercase">AI RELEASE</span>
+<h2 class="serif-headline text-2xl font-bold text-on-surface group-hover:text-primary cursor-pointer">OpenAI Releases 'Canvas' Interface for Coding</h2>
+<p class="font-body text-sm text-on-surface-variant opacity-80 leading-relaxed">A side-by-side workspace for collaboration that shifts the chat paradigm.</p>
+<span class="font-body text-[10px] opacity-40 uppercase">The Verge • 9h ago</span>
+</div>
+</article>
+<article class="md:col-span-4 group">
+<div class="flex flex-col gap-4">
+<span class="text-primary font-body text-[10px] font-bold tracking-[0.2em] uppercase">TOOLS</span>
+<h2 class="serif-headline text-2xl font-bold text-on-surface group-hover:text-primary cursor-pointer">Deno 2.0: The Node.js Compatibility Milestone</h2>
+<p class="font-body text-sm text-on-surface-variant opacity-80 leading-relaxed">The runtime finally makes the leap to universal JavaScript ecosystem support.</p>
+<span class="font-body text-[10px] opacity-40 uppercase">ZDNet • 10h ago</span>
+</div>
+</article>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-[#F9F3EB] dark:bg-[#1E1B17] w-full py-12 px-8 flex flex-col items-center justify-center gap-4 mt-24">
+<div class="flex gap-12 mb-4">
+<a class="font-['Inter'] text-xs tracking-wide opacity-60 text-[#570013] no-underline hover:opacity-100 hover:text-[#800020] transition-all" href="#">Twitter</a>
+<a class="font-['Inter'] text-xs tracking-wide opacity-60 text-[#570013] no-underline hover:opacity-100 hover:text-[#800020] transition-all" href="#">LinkedIn</a>
+<a class="font-['Inter'] text-xs tracking-wide opacity-60 text-[#570013] no-underline hover:opacity-100 hover:text-[#800020] transition-all" href="#">RSS Feed</a>
+</div>
+<p class="font-['Inter'] text-xs tracking-wide opacity-60 text-[#570013]">© 2024 Dev News Curator</p>
+<p class="font-['Newsreader'] italic text-sm text-[#570013] opacity-40">Typeset in Newsreader &amp; Inter</p>
+</footer>
+</body></html>

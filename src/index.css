@@ -1,1 +1,26 @@
 @import "tailwindcss";
+
+@theme {
+  --color-surface: #FFF8F1;
+  --color-primary: #570013;
+  --color-primary-container: #800020;
+  --color-secondary: #4E6354;
+  --color-secondary-container: #CEE6D3;
+  --color-on-secondary-container: #526858;
+  --color-on-surface: #1E1B17;
+  --color-on-surface-variant: #584141;
+  --color-on-primary: #FFFFFF;
+  --color-outline-variant: #E0BFBF;
+  --color-surface-container: #F4EDE5;
+  --color-surface-container-low: #F9F3EB;
+  --color-surface-container-high: #EEE7DF;
+
+  --font-family-headline: "Newsreader", serif;
+  --font-family-body: "Inter", sans-serif;
+}
+
+body {
+  background-color: #FFF8F1;
+  font-family: "Inter", sans-serif;
+  color: #1E1B17;
+}

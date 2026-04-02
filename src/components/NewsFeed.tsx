@@ -1,5 +1,11 @@
 import type { Article } from '../types/news';
-import { NewsCard } from './NewsCard';
+import {
+  FeaturedArticle,
+  SidebarArticle,
+  MediumArticle,
+  FullWidthFeature,
+  SimpleCard,
+} from './NewsCard';
 
 interface NewsFeedProps {
   articles: Article[];
@@ -7,53 +13,82 @@ interface NewsFeedProps {
   error: string | null;
 }
 
-function SkeletonCard() {
+function renderArticle(article: Article, index: number) {
+  const position = index % 8;
+
+  switch (position) {
+    case 0:
+      return <FeaturedArticle key={article.id} article={article} />;
+    case 1:
+      return <SidebarArticle key={article.id} article={article} />;
+    case 2:
+      return <MediumArticle key={article.id} article={article} />;
+    case 3:
+      return <MediumArticle key={article.id} article={article} staggered />;
+    case 4:
+      return <FullWidthFeature key={article.id} article={article} />;
+    default:
+      return <SimpleCard key={article.id} article={article} />;
+  }
+}
+
+function LoadingSkeleton() {
   return (
-    <div className="bg-white border border-gray-200 rounded-xl p-5 animate-pulse">
-      <div className="flex gap-3 mb-3">
-        <div className="h-4 bg-gray-200 rounded flex-1" />
-        <div className="h-4 bg-gray-200 rounded w-20 shrink-0" />
+    <section className="grid grid-cols-1 md:grid-cols-12 gap-x-12 gap-y-24 mb-48 animate-pulse">
+      {/* Featured placeholder */}
+      <div className="md:col-span-8 space-y-6">
+        <div className="h-3 bg-surface-container-high rounded w-32" />
+        <div className="h-10 bg-surface-container-high rounded w-full" />
+        <div className="h-10 bg-surface-container-high rounded w-3/4" />
+        <div className="h-4 bg-surface-container-high rounded w-2/3" />
+        <div className="h-4 bg-surface-container-high rounded w-1/2" />
       </div>
-      <div className="space-y-2 mb-4">
-        <div className="h-3 bg-gray-200 rounded w-full" />
-        <div className="h-3 bg-gray-200 rounded w-5/6" />
-        <div className="h-3 bg-gray-200 rounded w-4/6" />
+      {/* Sidebar placeholder */}
+      <div className="md:col-span-4 self-start md:mt-12 p-8 bg-surface-container rounded-xl space-y-4">
+        <div className="h-3 bg-surface-container-high rounded w-24" />
+        <div className="h-6 bg-surface-container-high rounded w-full" />
+        <div className="h-6 bg-surface-container-high rounded w-3/4" />
+        <div className="h-4 bg-surface-container-high rounded w-full" />
       </div>
-      <div className="h-3 bg-gray-200 rounded w-32" />
-    </div>
+      {/* Medium placeholders */}
+      <div className="md:col-start-2 md:col-span-5 space-y-4">
+        <div className="h-3 bg-surface-container-high rounded w-24" />
+        <div className="h-8 bg-surface-container-high rounded w-full" />
+        <div className="h-4 bg-surface-container-high rounded w-5/6" />
+      </div>
+      <div className="md:col-span-5 md:mt-24 space-y-4">
+        <div className="h-3 bg-surface-container-high rounded w-24" />
+        <div className="h-8 bg-surface-container-high rounded w-full" />
+        <div className="h-4 bg-surface-container-high rounded w-5/6" />
+      </div>
+    </section>
   );
 }
 
 export function NewsFeed({ articles, loading, error }: NewsFeedProps) {
   if (error) {
     return (
-      <div className="text-center py-16 text-sm text-red-500">
+      <div className="text-center py-16 font-body text-sm text-primary">
         Failed to load articles: {error}
       </div>
     );
   }
 
   if (loading) {
-    return (
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-        {Array.from({ length: 6 }).map((_, i) => <SkeletonCard key={i} />)}
-      </div>
-    );
+    return <LoadingSkeleton />;
   }
 
   if (articles.length === 0) {
     return (
-      <div className="text-center py-16 text-sm text-gray-400">
+      <div className="text-center py-16 font-body text-sm text-on-surface-variant opacity-60">
         No articles found for the selected filter.
       </div>
     );
   }
 
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-      {articles.map(article => (
-        <NewsCard key={article.id} article={article} />
-      ))}
-    </div>
+    <section id="feed" className="grid grid-cols-1 md:grid-cols-12 gap-x-12 gap-y-24 mb-48">
+      {articles.map((article, i) => renderArticle(article, i))}
+    </section>
   );
 }

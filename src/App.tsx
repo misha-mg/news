@@ -6,6 +6,7 @@ import { Header } from './components/Header';
 import { DigestBlock } from './components/DigestBlock';
 import { FilterBar } from './components/FilterBar';
 import { NewsFeed } from './components/NewsFeed';
+import { Footer } from './components/Footer';
 
 export default function App() {
   const [activeCategory, setActiveCategory] = useState<Category | undefined>(undefined);
@@ -13,17 +14,16 @@ export default function App() {
   const { digest, loading: digestLoading } = useDigest();
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-surface text-on-surface">
       <Header lastCollectedAt={lastCollectedAt} />
 
-      <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-8">
+      <main className="max-w-7xl mx-auto px-8 pt-12">
         <DigestBlock digest={digest} loading={digestLoading} />
-
-        <div className="space-y-4">
-          <FilterBar active={activeCategory} onChange={setActiveCategory} />
-          <NewsFeed articles={articles} loading={loading} error={error} />
-        </div>
+        <FilterBar active={activeCategory} onChange={setActiveCategory} />
+        <NewsFeed articles={articles} loading={loading} error={error} />
       </main>
+
+      <Footer />
     </div>
   );
 }
