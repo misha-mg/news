@@ -11,12 +11,12 @@ export function Header({ lastCollectedAt }: HeaderProps) {
 
   return (
     <header className="bg-surface/80 backdrop-blur-md sticky top-0 z-50">
-      <div className="flex justify-between items-center w-full px-8 py-6 max-w-7xl mx-auto">
+      <div className="flex justify-between items-center w-full px-4 md:px-8 py-4 md:py-6 max-w-7xl mx-auto">
         <div className="flex flex-col">
-          <span className="text-2xl font-headline font-black text-primary">
+          <span className="text-xl md:text-2xl font-headline font-black text-primary">
             Dev News
           </span>
-          <span className="font-body text-xs font-normal opacity-70 tracking-wide">
+          <span className="font-body text-[10px] md:text-xs font-normal opacity-70 tracking-wide">
             Daily IT &amp; AI briefing — {timeLabel}
           </span>
         </div>
@@ -36,7 +36,7 @@ export function Header({ lastCollectedAt }: HeaderProps) {
           </a>
         </nav>
 
-        <button className="hidden sm:block bg-primary hover:bg-primary-container text-on-primary px-6 py-2 rounded-full font-body text-sm font-semibold transition-all duration-300">
+        <button className="hidden sm:block bg-primary hover:bg-primary-container text-on-primary px-4 md:px-6 py-2 rounded-full font-body text-xs md:text-sm font-semibold transition-all duration-300">
           Subscribe
         </button>
       </div>

@@ -17,10 +17,10 @@ export default function App() {
     <div className="min-h-screen bg-surface text-on-surface">
       <Header lastCollectedAt={lastCollectedAt} />
 
-      <main className="max-w-7xl mx-auto px-8 pt-12">
+      <main className="max-w-7xl mx-auto px-4 md:px-8 pt-6 md:pt-12">
         <DigestBlock digest={digest} loading={digestLoading} />
         <FilterBar active={activeCategory} onChange={setActiveCategory} />
-        <NewsFeed articles={articles} loading={loading} error={error} />
+        <NewsFeed articles={articles} loading={loading} error={error} activeCategory={activeCategory} />
       </main>
 
       <Footer />

@@ -15,8 +15,17 @@
   --color-surface-container-low: #F9F3EB;
   --color-surface-container-high: #EEE7DF;
 
-  --font-family-headline: "Newsreader", serif;
-  --font-family-body: "Inter", sans-serif;
+  --color-cat-ai: #7B2D8B;
+  --color-cat-ai-light: #F3E8F5;
+  --color-cat-eng: #2B5EA7;
+  --color-cat-eng-light: #E5EEF8;
+  --color-cat-tools: #3A7D44;
+  --color-cat-tools-light: #E6F2E8;
+  --color-cat-industry: #B8600A;
+  --color-cat-industry-light: #FBF0E4;
+
+  --font-headline: "Newsreader", serif;
+  --font-body: "Inter", sans-serif;
 }
 
 body {
